@@ -118,6 +118,11 @@ public class MainActivity extends AppCompatActivity {
 
                             String phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                             model.setNumber(phoneNumber);
+                            if(ContactsContract.CommonDataKinds.Phone.PHOTO_URI !=null){
+                                String pic=phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI));
+                                Log.d("pic",""+pic);
+                                model.setPhoto_uri(pic);
+                            }
                             Log.d(TAG,"Contact Phone NUmber: "+phoneNumber);
                         }
                         phoneCursor.close();
